@@ -44,6 +44,9 @@ services:
      mode: replicated
      replicas: 2
      # Define limites para o Container
+     #
+     # Cuidado ao utilizar esses valores, depende do Host de cada um
+     #
      resources:
        limits:            # limite máximo de recursos
          cpus: '1'
@@ -78,10 +81,13 @@ services:
    image: postgres:alpine
    deploy:
      # Define limites para o Container
+     #
+     # Cuidado ao utilizar esses valores, depende do Host de cada um
+     #
      resources:
        limits:            # limite máximo de recursos
          cpus: '2'
-         memory: 4096M
+         memory: 2048M
        reservations:      # definida como a quantidade mínima para a execução
          cpus: '1'
          memory: 2048M
@@ -107,4 +113,5 @@ networks:
 
 
 # *: O modo Swarm é um recurso do Docker que fornece funcionalidades de orquestração de container, 
-# incluindo clustering nativo de hosts do Docker e agendamento de cargas de trabalho de containers
+# incluindo clustering nativo de hosts do Docker e agendamento de cargas de trabalho de containers.
+# Se interessou em se aprofundar? Boa, comece por aqui: https://imasters.com.br/desenvolvimento/vamos-conhecer-o-docker-swarm
